@@ -1,0 +1,39 @@
+@import "./../../assets/scss/core";
+
+.header{
+  align-items: center;
+  display: flex;
+  background: map-get($colors, white);
+  border-bottom: 1px solid map-get($colors, gray);
+  height: 100%;
+
+  .menu {
+    &, ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 20px;
+
+      li button{
+        display: block;
+        border: 0;
+        width: em(100px);
+        height: em(18px);
+
+        transition: background .3s ease-in-out;
+
+        &:hover, &:focus{
+          background: map-get($colors, gray400);
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(sm){
+    display: none;
+  }
+}

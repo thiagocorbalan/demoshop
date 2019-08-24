@@ -1,0 +1,18 @@
+@import "./../../assets/scss/core";
+
+.footer {
+  background: map-get($colors, white);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .rect {
+    height: em(12px);
+    width: 80%;
+    margin: auto;
+  }
+  @include media-breakpoint-down(sm){
+    display: none;
+  }
+}

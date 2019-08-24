@@ -1,0 +1,20 @@
+﻿/**
+*   Mixins
+*
+*   @project:       DemoShop.com.br
+*   @version:       1.0.0
+*   @description:   Aqui ficam os Mixins, ou funções, que facilitam a escrita das declarações CSS.
+*   @author:        Thiago Corbalan
+*   @date:          24/08/2019
+*   @update:        ---
+*/
+
+@function em($sizeValue, $sizebase: 16px) {
+    @if(unitless($sizeValue)) {
+        $sizeValue: $sizeValue * 1px;
+    }
+    @if(unitless($sizebase)) {
+        $sizebase: $sizebase * 1px;
+    }
+    @return $sizeValue/$sizebase * 1em;
+}
