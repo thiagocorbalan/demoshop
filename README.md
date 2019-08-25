@@ -1,4 +1,10 @@
-# Bexshop
+# DemoShop
+
+This project aims to show all my knowledge in the angle that I acquired in the last 3 years. Simulating a payment screen, I show how I organize my files, components, modules, and services to communicate between components and an API.
+
+In this project I make a point of using SASS as a preprocessor and 2 very famous famous libraries in the market that help us a lot on a daily basis, they are Bootstrap (Twitter) and Material which is from Angular team itself.
+
+Every detail of this project has been carefully thought out and programmed with great care so that everything is perfect and meets the expectations of the Bexs team.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
 
@@ -6,13 +12,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
