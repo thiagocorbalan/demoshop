@@ -1,0 +1,49 @@
+@import "../../../assets/scss/core";
+
+.aside {
+  background: map-get($colors, white);
+  padding: em(52px) em(20px);
+
+  article {
+    border: 1px solid map-get($colors, gray400);
+    border-left: 0;
+    border-right: 0;
+    padding: em(25px) 0;
+    margin: em(25px) 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: em(10px);
+  }
+
+  .rect {
+    background: map-get($colors, gray100);
+    height: em(12px);
+
+    &.rect-title {
+      height: em(18px);
+      width: 82%;
+    }
+
+    &.rect-inline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+
+      span {
+        background: map-get($colors, gray100);
+        height: 100%;
+        @include border-radius(5px);
+        width: 15%;
+      }
+
+      span:first-child {
+        width: 75%;
+      }
+    }
+
+    &.rect-footer>span {
+      background: map-get($colors, gray);
+    }
+  }
+}
