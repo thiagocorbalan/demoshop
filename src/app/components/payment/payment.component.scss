@@ -1,0 +1,44 @@
+@import "./../../../assets/scss/core";
+
+.main-content{
+  padding: em(50px) em(64px);
+}
+.breadcrumb ol{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  counter-reset: my-awesome-counter;
+  padding: 0;
+
+  li{
+    counter-increment: my-awesome-counter;
+    &:before{
+      content: counter(my-awesome-counter);
+      width: em(22px);
+      height: em(22px);
+      line-height: em(20px);
+      text-align: center;
+      display: inline-block;
+      border: em(1px) solid map-get($colors, red100);
+      font-weight: 700;
+      color:  map-get($colors, red100);
+      margin-right: em(8px);
+      @include border-radius(50%);
+    }
+
+    &.active:before{
+      background: map-get($colors, red100);
+    }
+    &.active:after{
+      //content:  url(test.svg);
+    }
+
+    .breadcrumb-item__text{
+      display: inline-block;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:  map-get($colors, red100);
+      font-size: em(13px);
+    }
+  }
+}

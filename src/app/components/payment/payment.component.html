@@ -6,7 +6,7 @@
 
       <button class="button"> <span class="icon arrow-left"></span> Alterar forma de pagamento </button>
 
-      <h1>Adicione um novo cartão de crédito</h1>
+      <h1> <span class="icon"></span> Adicione um novo cartão de crédito</h1>
 
       <app-credit-card></app-credit-card>
 
@@ -14,23 +14,24 @@
     <!-- Main -->
     <div class="col">
 
-      <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb" class="breadcrumb">
-        <ol>
-          <li class="breadcrumb-item active">
-            <span class="breadcrumb-item__text">Carrinho</span>
-          </li>
-          <li class="breadcrumb-item">
-            <span class="breadcrumb-item__text">Pagamento</span>
-          </li>
-          <li class="breadcrumb-item">
-            <span class="breadcrumb-item__text">Confirmação</span>
-          </li>
-        </ol>
-      </nav>
+      <div class="main-content">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="breadcrumb">
+          <ol>
+            <li class="breadcrumb-item active">
+              <span class="breadcrumb-item__text">Carrinho</span>
+            </li>
+            <li class="breadcrumb-item">
+              <span class="breadcrumb-item__text">Pagamento</span>
+            </li>
+            <li class="breadcrumb-item">
+              <span class="breadcrumb-item__text">Confirmação</span>
+            </li>
+          </ol>
+        </nav>
 
-      <!-- Form -->
-      <form>
+        <!-- Form -->
+        <form>
           <mat-form-field>
             <input matInput placeholder="Número do cartão">
           </mat-form-field>
@@ -44,25 +45,27 @@
           </mat-form-field>
 
           <mat-form-field>
-              <mat-label>CVV</mat-label>
+            <mat-label>CVV</mat-label>
             <input matInput>
           </mat-form-field>
 
           <mat-form-field>
-              <mat-label>Número de parcelas</mat-label>
-              <mat-select #fontSize value="12x R$1.000,00 sem juros" > <!-- (selectionChange)="triggerResize()"-->
-                <mat-option value="À Vista R$12.000,00">À Vista R$12.000,00 sem juros</mat-option>
-                <mat-option value="2x R$6.000,00 sem juros">2x R$6.000,00 sem juros</mat-option>
-                <mat-option value="3x R$4.000,00 sem juros">3x R$4.000,00 sem juros</mat-option>
-                <mat-option value="4x R$3.000,00 sem juros">4x R$3.000,00 sem juros</mat-option>
-              </mat-select>
+            <mat-label>Número de parcelas</mat-label>
+            <mat-select #fontSize value="12x R$1.000,00 sem juros">
+              <!-- (selectionChange)="triggerResize()"-->
+              <mat-option value="À Vista R$12.000,00">À Vista R$12.000,00 sem juros</mat-option>
+              <mat-option value="2x R$6.000,00 sem juros">2x R$6.000,00 sem juros</mat-option>
+              <mat-option value="3x R$4.000,00 sem juros">3x R$4.000,00 sem juros</mat-option>
+              <mat-option value="4x R$3.000,00 sem juros">4x R$3.000,00 sem juros</mat-option>
+            </mat-select>
           </mat-form-field>
 
           <button type="submit" class="btn">Continuar</button>
 
 
 
-      </form>
+        </form>
+      </div>
     </div>
 
   </div>
