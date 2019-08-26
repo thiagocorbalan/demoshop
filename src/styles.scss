@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap-grid";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
 @import "./assets/scss/core";
 
 html, body, app-root {
@@ -12,6 +13,7 @@ body{
   background: map-get($colors, gray100);
   font-size: 100%;
   overflow-y: scroll;
+  font-family: $font-family-secondary;
 }
 
 app-root{
