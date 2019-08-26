@@ -59,57 +59,63 @@
   }
 }
 
-.breadcrumb ol{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  counter-reset: my-awesome-counter;
-  padding: 0;
+.breadcrumb {
+  margin: 1em 0 em(53px);
 
-  li{
-    counter-increment: my-awesome-counter;
-    &:before{
-      content: counter(my-awesome-counter);
-      width: em(22px,12);
-      height: em(22px,12);
-      line-height: em(20px,12);
-      text-align: center;
-      display: inline-block;
-      border: em(1px) solid map-get($colors, red100);
-      font-family: $font-family-secondary;
-      font-weight: 700;
-      color:  map-get($colors, red100);
-      margin-right: em(8px);
-      font-size: em(12px);
-      @include border-radius(50%);
-    }
+  ol{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    padding: 0;
+    margin: 0;
 
-    &.active:before{
-      content: url("../../../assets/images/icon-check.svg");
-      background: map-get($colors, red100);
-      line-height: em(22px,12)
-    }
-    &:after{
-      content:  url("./../../../assets/images/icon-arrow.svg");
-      display: inline-block;
-      width: em(16px);
-      height: em(16px);
-      line-height: em(16px);
-      vertical-align: middle;
-      margin-left: em(18px);
-    }
+    li{
+      counter-increment: my-awesome-counter;
+      &:before{
+        content: counter(my-awesome-counter);
+        width: em(22px,12);
+        height: em(22px,12);
+        line-height: em(20px,12);
+        text-align: center;
+        display: inline-block;
+        border: em(1px) solid map-get($colors, red100);
+        font-family: $font-family-secondary;
+        font-weight: 700;
+        color:  map-get($colors, red100);
+        margin-right: em(8px);
+        font-size: em(12px);
+        @include border-radius(50%);
+      }
 
-    &:last-child:after{ content: none; }
+      &.active:before{
+        content: url("../../../assets/images/icon-check.svg");
+        background: map-get($colors, red100);
+        line-height: em(22px,12)
+      }
+      &:after{
+        content:  url("./../../../assets/images/icon-arrow.svg");
+        display: inline-block;
+        width: em(16px);
+        height: em(16px);
+        line-height: em(16px);
+        vertical-align: middle;
+        margin-left: em(18px);
+      }
 
-    .breadcrumb-item__text{
-      display: inline-block;
-      font-family: $font-family-secondary;
-      color:  map-get($colors, red100);
-      font-size: em(13px);
+      &:last-child:after{ content: none; }
+
+      .breadcrumb-item__text{
+        display: inline-block;
+        font-family: $font-family-secondary;
+        color:  map-get($colors, red100);
+        font-size: em(13px);
+      }
     }
   }
 }
+
 
 .main-content{
   text-align: right;

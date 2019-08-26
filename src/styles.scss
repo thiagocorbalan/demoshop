@@ -5,27 +5,43 @@
 
 @import "./assets/scss/core";
 
-html, body, app-root {
+html,
+body,
+app-root {
   height: 100%;
 }
 
-body{
+body {
   background: map-get($colors, gray100);
   font-size: 100%;
   overflow-y: scroll;
   font-family: $font-family-secondary;
 }
 
-app-root{
+app-root {
   display: grid;
   grid-template-rows: 90px 1fr 68px;
 
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     display: initial;
   }
 }
 
-.rect{
+.rect {
   background: map-get($colors, gray);
   @include border-radius(5px);
+}
+
+
+// Custom Matform and DropDown
+.mat-form-field-appearance-legacy {
+  .mat-form-field-label {
+    color: map-get($colors, gray);
+    font-family: $font-family-secondary;
+    font-size: em(17px);
+  }
+
+  .mat-form-field-underline {
+    background: map-get($colors, gray);
+  }
 }
