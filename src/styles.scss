@@ -16,13 +16,17 @@ body {
   font-size: 100%;
   overflow-y: scroll;
   font-family: $font-family-secondary;
+
+  @include media-breakpoint-down(md){
+    background: map-get($colors, white);
+  }
 }
 
 app-root {
   display: grid;
   grid-template-rows: 90px 1fr 68px;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     display: initial;
   }
 }
@@ -53,11 +57,16 @@ app-root {
   }
 }
 
-mat-form-field .mat-select-arrow{
-  width: 16px;
-  height: 16px;
-  border: 0 !important;
-  transform: rotate(90deg);
+mat-form-field{
+  .mat-form-field-infix{ width: 100%; }
 
-  &:before{ content: url("assets/images/icon-arrow.svg");}
+  .mat-select-arrow{
+    width: 16px;
+    height: 16px;
+    border: 0 !important;
+    transform: rotate(90deg);
+
+    &:before{ content: url("assets/images/icon-arrow.svg");}
+  }
 }
+

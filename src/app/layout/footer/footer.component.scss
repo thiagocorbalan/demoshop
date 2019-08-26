@@ -12,7 +12,7 @@
     width: 80%;
     margin: auto;
   }
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(md){
     display: none;
   }
 }

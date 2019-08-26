@@ -1,12 +1,24 @@
 @import "../assets/scss/core";
 
-body{
-  background: #f00;
+.main-container{
+  display: grid;
+  grid-template-columns: minmax(1024px, 1fr) 1fr;
+  grid-gap: 15px;
+  padding: 0 15px;
+  max-width: 1366px;
+  margin: auto;
+
+  @include media-breakpoint-down(md){
+    padding: 0;
+  }
+  @include media-breakpoint-down(lg){
+    grid-template-columns: 1fr;
+  }
 }
 
 
 main{
-  padding: em(65px) 0 em(15px);
+  place-self: center;
 
   .main-content{
     background: map-get($colors, white );
@@ -14,12 +26,8 @@ main{
 
 
 
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(md){
     padding: 0;
-
-    .aside{
-      display: none;
-    }
   }
 }
 

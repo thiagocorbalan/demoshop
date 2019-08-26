@@ -1,21 +1,14 @@
 <app-header></app-header>
 
 <main>
-  <div class="container main-container">
-    <div class="row">
+  <div class="main-container">
+    <!-- Main Content -->
+    <article class="main-content">
+      <app-payment></app-payment>
+    </article>
 
-      <!-- Main Content -->
-      <div class="col pr-md-0">
-        <article class="main-content">
-          <app-payment></app-payment>
-        </article>
-      </div>
-
-      <!-- Aside -->
-      <div class="col-xl-3 d-none d-xl-block">
-        <app-aside></app-aside>
-      </div>
-    </div>
+    <!-- Aside -->
+    <app-aside></app-aside>
   </div>
 </main>
 

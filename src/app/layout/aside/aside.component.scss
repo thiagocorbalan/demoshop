@@ -46,4 +46,8 @@
       background: map-get($colors, gray);
     }
   }
+
+  @include media-breakpoint-down(lg){
+    display: none;
+  }
 }

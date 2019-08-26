@@ -1,83 +1,70 @@
-<div class="container">
-  <div class="row justify-content-between">
+<div class="grid">
 
-    <!-- Card area -->
-    <div class="col-4 p-0">
-
-      <div class="card-area">
-        <button class="btn btn-prev"> <span class="icon arrow-left"></span> Alterar forma de pagamento </button>
-
-        <h1> <span class="icon credit-card"></span> Adicione um novo cartão de crédito</h1>
-
-        <app-credit-card></app-credit-card>
-      </div>
-
-    </div>
-    <!-- Main -->
-    <div class="col-6">
-
-      <div class="main-content">
-        <!-- Breadcrumb -->
-        <nav aria-label="breadcrumb" class="breadcrumb">
-          <ol>
-            <li class="breadcrumb-item active">
-              <span class="breadcrumb-item__text">Carrinho</span>
-            </li>
-            <li class="breadcrumb-item">
-              <span class="breadcrumb-item__text">Pagamento</span>
-            </li>
-            <li class="breadcrumb-item">
-              <span class="breadcrumb-item__text">Confirmação</span>
-            </li>
-          </ol>
-        </nav>
-
-        <!-- Form -->
-        <form>
-          <mat-form-field>
-            <input matInput placeholder="Número do cartão">
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput placeholder="Nome (igual ao cartão)">
-          </mat-form-field>
-
-          <div class="form-fields-inline">
-            <mat-form-field>
-              <input matInput placeholder="Validade">
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>CVV
-                  <button type="button" class="icon info"
-                    mat-raised-button
-                    matTooltip="O CVV é um número que geralmente fica no verso do cartão"
-                    aria-label="Button that displays a tooltip in various positions"
-                    ></button>
-              </mat-label>
-              <input matInput>
-            </mat-form-field>
-          </div>
-
-
-          <mat-form-field>
-            <mat-label>Número de parcelas</mat-label>
-            <mat-select #fontSize value="12x R$1.000,00 sem juros">
-              <!-- (selectionChange)="triggerResize()"-->
-              <mat-option value="À Vista R$12.000,00">À Vista R$12.000,00 sem juros</mat-option>
-              <mat-option value="2x R$6.000,00 sem juros">2x R$6.000,00 sem juros</mat-option>
-              <mat-option value="3x R$4.000,00 sem juros">3x R$4.000,00 sem juros</mat-option>
-              <mat-option value="4x R$3.000,00 sem juros">4x R$3.000,00 sem juros</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <div class="clear"></div>
-
-          <button type="submit" class="btn">Continuar</button>
-
-        </form>
-      </div>
-    </div>
-
+  <!-- Card area -->
+  <div class="card-area">
+    <button class="btn btn-prev"> <span class="icon arrow-left"></span> Alterar forma de pagamento </button>
+    <h1> <span class="icon credit-card"></span> Adicione um novo cartão de crédito</h1>
+    <app-credit-card></app-credit-card>
   </div>
+
+  <!-- Main -->
+  <div class="main-content">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="breadcrumb">
+      <ol>
+        <li class="breadcrumb-item active">
+          <span class="breadcrumb-item__text">Carrinho</span>
+        </li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-item__text">Pagamento</span>
+        </li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-item__text">Confirmação</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Form -->
+    <form>
+      <mat-form-field>
+        <input matInput placeholder="Número do cartão">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Nome (igual ao cartão)">
+      </mat-form-field>
+
+      <div class="form-fields-inline">
+        <mat-form-field>
+          <input matInput placeholder="Validade">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>CVV
+            <button type="button" class="icon info" mat-raised-button
+              matTooltip="O CVV é um número que geralmente fica no verso do cartão"
+              aria-label="Button that displays a tooltip in various positions"></button>
+          </mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+
+      <mat-form-field>
+        <mat-label>Número de parcelas</mat-label>
+        <mat-select #fontSize value="12x R$1.000,00 sem juros">
+          <mat-option value="À Vista R$12.000,00">À Vista R$12.000,00 sem juros</mat-option>
+          <mat-option value="2x R$6.000,00 sem juros">2x R$6.000,00 sem juros</mat-option>
+          <mat-option value="3x R$4.000,00 sem juros">3x R$4.000,00 sem juros</mat-option>
+          <mat-option value="4x R$3.000,00 sem juros">4x R$3.000,00 sem juros</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="clear"></div>
+
+      <button type="submit" class="btn">Continuar</button>
+
+    </form>
+  </div>
+
 </div>
