@@ -1,9 +1,14 @@
-@import "~bootstrap/scss/bootstrap-reboot";
-@import "~bootstrap/scss/bootstrap-grid";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 
-@import "./assets/scss/core";
+@import './assets/scss/core';
+
+
+@include font-face($font-family-secondary, 'SFProText-Regular', $font-weight: 400);
+@include font-face($font-family-secondary, 'SFProText-SemiBold', $font-weight: 600);
+
 
 html,
 body,
@@ -15,9 +20,9 @@ body {
   background: map-get($colors, gray100);
   font-size: 100%;
   overflow-y: scroll;
-  font-family: $font-family-secondary;
+  font-family: $font-family-primary;
 
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(md) {
     background: map-get($colors, white);
   }
 }
@@ -49,7 +54,7 @@ app-root {
     background: map-get($colors, gray);
   }
 
-  .mat-input-element{
+  .mat-input-element {
     font-family: $font-family-secondary;
     font-size: em(17px);
     color: map-get($colors, gray500);
@@ -57,16 +62,19 @@ app-root {
   }
 }
 
-mat-form-field{
-  .mat-form-field-infix{ width: 100%; }
+mat-form-field {
+  .mat-form-field-infix {
+    width: 100%;
+  }
 
-  .mat-select-arrow{
+  .mat-select-arrow {
     width: 16px;
     height: 16px;
     border: 0 !important;
     transform: rotate(90deg);
 
-    &:before{ content: url("assets/images/icon-arrow.svg");}
+    &:before {
+      content: url('assets/images/icon-arrow.svg');
+    }
   }
 }
-

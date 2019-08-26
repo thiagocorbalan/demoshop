@@ -1,0 +1,142 @@
+/**
+*   Mixins
+*
+*   @project:       DemoShop.com.br
+*   @version:       1.0.0
+*   @description:   Here are some mixins that make it easy to write CSS declarations.
+*   @author:        Thiago Corbalan
+*   @date:          26/08/2019
+*   @update:        ---
+*/
+
+@mixin centralize($width,
+  $height) {
+  @include centralize-width($width);
+  @include centralize-height($height);
+}
+
+@mixin centralize-width($width) {
+  position: absolute;
+  width: $width;
+  left: 50%;
+  margin-left: -($width / 2);
+}
+
+@mixin centralize-height($height) {
+  position: absolute;
+  height: $height;
+  top: 50%;
+  margin-top: -($height / 2);
+}
+
+
+
+@mixin font-face($font-name, 
+  $font-file-name, 
+  $font-weight: normal, 
+  $font-style: normal, 
+  $font-url: '~/assets/fonts/', 
+  $font-path: ''
+) {
+  $svg-id: replace($font-file-name, '-', '_');
+
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-url}#{$font-path}#{$font-file-name}.eot');
+    src: url('#{$font-url}#{$font-path}#{$font-file-name}.woff') format('woff'),
+    url('#{$font-url}#{$font-path}#{$font-file-name}.ttf') format('truetype'),
+    url('#{$font-url}#{$font-path}#{$font-file-name}.svg#${svg-id}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+
+    @content;
+  }
+}
+
+
+@mixin linear-gradient($direction: left, $color-stops...) {
+  @if is-direction($direction)==false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+
+@mixin opacity($opacity) {
+	// IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=#{$opacity-ie});
+  opacity: $opacity;
+}
+
+@mixin radial-gradient($start, $end, $radius-start: 0%, $radius-end: 100%) {
+  // FF3.6-15
+  background: -moz-radial-gradient(center, circle cover, $start $radius-start, $end $radius-end);
+  // Chrome10-25,Safari5.1-6 
+  background: -webkit-radial-gradient(center, circle cover, $start $radius-start, $end $radius-end);
+  // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: radial-gradient(circle at center, $start $radius-start, $end $radius-end);
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -ms-transform: rotate($degrees); // IE9 only
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin rotateY($degrees) {
+  -webkit-transform: rotateY($degrees);
+  -ms-transform: rotateY($degrees); // IE9 only
+  -o-transform: rotateY($degrees);
+  transform: rotateY($degrees);
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  box-shadow: $shadow;
+}
+
+@mixin animation($animation...) {
+  -webkit-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin scaleX($ratio) {
+  -webkit-transform: scaleX($ratio);
+  -ms-transform: scaleX($ratio); // IE9 only
+  -o-transform: scaleX($ratio);
+  transform: scaleX($ratio);
+}
+
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+  -ms-transform: scale($ratio); // IE9 only
+  -o-transform: scale($ratio);
+  transform: scale($ratio);
+}

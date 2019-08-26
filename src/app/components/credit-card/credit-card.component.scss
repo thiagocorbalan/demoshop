@@ -1,0 +1,340 @@
+@import "../../../assets/scss/core";
+
+.ui-card__container {
+  width: 364px;
+  height: 223px;
+  perspective: 600px;
+  user-select: none;
+  display: inline-block;
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    font-family: $font-family-secondary;
+    font-weight: 400;
+    color: map-get($colors, gray400);
+    z-index: 1;
+    @include transition(all .3s ease-in-out);
+
+
+    .card__face {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      background: map-get($colors, gray400);
+      overflow: hidden;
+      z-index: 1;
+      @include radial-gradient(map-get($colors, gray), map-get($colors, gray400), 45deg);
+      @include border-radius(15px);
+
+      &.card__face--front {
+
+        .logo-card,
+        .number-card,
+        .name-card,
+        .date-card {
+          position: absolute;
+          display: block;
+          left: 6%;
+          font-size: 11px;
+          text-transform: uppercase;
+          z-index: 2;
+        }
+
+        // Logo
+        .logo-card {
+          top: 12%;
+          width: 70px;
+          height: 40px;
+          border-radius: 3px;
+          background: transparent;
+
+          &:before {
+            content: "";
+            background-image: url("../../../assets/images/ui-card-sprite-flags.png");
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            position: absolute;
+            width: 140px;
+            height: 40px;
+            @include opacity(0);
+            @include transition(none);
+          }
+        }
+
+        .number-card,
+        .date-card,
+        .name-card {
+          font-weight: 400;
+          font-size: em(16px);
+          color: map-get($colors, white);
+          text-shadow: 0px 1px 2px map-get($colors, black);
+        }
+
+        .number-card {
+          font-size: em(24px);
+          width: 88%;
+          top: 45%;
+          margin: 0 auto;
+          text-align: center;
+          text-align-last: justify;
+          line-height: 27px;
+          letter-spacing: -0.12px;
+        }
+
+        .name-card,
+        .date-card {
+          bottom: 12%;
+        }
+
+        .date-card {
+          left: auto;
+          right: 6%;
+          text-align: right;
+        }
+      }
+
+      &.card__face--back {
+        transform: rotateY(180deg);
+
+        .black-tarja {
+          position: absolute;
+          width: 100%;
+          height: 40px;
+          top: 13%;
+          left: 0;
+          display: block;
+          background: rgba(map-get($colors, black), .75);
+          z-index: 1;
+        }
+
+        .container-white {
+          width: 84%;
+          display: block;
+          height: 26px;
+          background: map-get($colors, gray100);
+          top: 44%;
+          left: 50%;
+          margin-left: calc(-84%/2);
+          position: absolute;
+          z-index: 1;
+
+          .cvc-code {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            line-height: 27px;
+            width: 20%;
+            background: map-get($colors, white);
+            text-align: center;
+
+            &:before {
+              content: "";
+              border: 2px solid map-get($colors, red);
+              border-radius: 50%;
+              z-index: 1;
+              animation: zoomlines 1s linear alternate infinite;
+              @include centralize(50px, 50px);
+            }
+          }
+        }
+      }
+
+      .effects {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        @include rotateY(180deg);
+
+        .effects--ball,
+        .effects--lines{
+          position: absolute;
+          display: block;
+        }
+
+        .effects--ball{
+          //background: map-get($colors, gray400);
+					width: 400px;
+					height: 400px;
+					left: 20%;
+					bottom: -60%;
+					@include border-radius(100%);
+					@include radial-gradient(map-get($colors, gray), map-get($colors, gray400), 10%);
+					filter: blur(40px);
+        }
+
+        .effects--lines{
+          background: url('../../../assets/images/lines.svg') no-repeat;
+          width: 100%;
+          height: 100%;
+          @include transform(scaleX(-1) scale(1.4) rotate(16deg));
+          top: 2%;
+          left: 20%;
+          @include opacity(.1);
+
+        }
+      }
+    }
+
+    &.flippend {
+      @include rotateY(180deg);
+    }
+
+    &.blur {
+      filter: blur(5px);
+    }
+
+    // SKINS
+    .skin-card--container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .skin-card--mask {
+        position: absolute;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        left: 0;
+        top: 0;
+        margin-top: -1px;
+        margin-left: -1px;
+        border-radius: 15px 15px 100% 15px;
+        @include transition(all .3s ease-in-out);
+      }
+
+      .skin-card--color {
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        @include transition(all .3s ease-in-out);
+      }
+    }
+
+    &[class*=skin-card] {
+      .skin-card--container .skin-card--mask {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+      }
+
+      .card__face.card__face--front {
+
+        .number-card {
+          text-shadow: 0 1px rgba(map-get($colors, black), .5);
+        }
+
+        .logo-card {
+          background: transparent;
+
+          &:before {
+            @include opacity(1);
+            @include transition(opacity .3s .2s linear);
+          }
+        }
+      }
+    }
+
+    // Visa
+    &.skin-card--123 {
+      color: map-get($colors, white);
+
+      .card__face.card__face--back .container-white .cvc-code {
+        color: map-get($colors, gray500);
+      }
+
+      .skin-card--container .skin-card--mask .skin-card--color {
+        @include linear-gradient(45deg, map-deep-get($theme-uicard, visa, 800), map-deep-get($theme-uicard, visa, 300));
+
+      }
+    }
+
+    // Mastercard
+    &.skin-card--141 {
+      color: map-get($colors, white);
+
+      .card__face.card__face--front .logo-card:before {
+        background-position-y: -40px;
+      }
+
+      .card__face.card__face--back .container-white .cvc-code {
+        color: map-get($colors, gray500);
+      }
+
+      .skin-card--container .skin-card--mask .skin-card--color {
+        @include linear-gradient(45deg, map-deep-get($theme-uicard, mastercard, 800), map-deep-get($theme-uicard, mastercard, 300));
+      }
+    }
+
+    // Elo
+    &.skin-card--147 {
+      color: map-get($colors, gray100);
+
+      .card__face.card__face--front .logo-card:before {
+        background-position-y: -80px;
+      }
+
+      .card__face.card__face--back .container-white .cvc-code {
+        color: map-get($colors, gray500);
+      }
+
+      .skin-card--container .skin-card--mask .skin-card--color {
+        @include linear-gradient(45deg, map-deep-get($theme-uicard, elo, 800), map-deep-get($theme-uicard, elo, 300));
+      }
+    }
+
+    // hippercard
+    &.skin-card--145,
+    &.skin-card--237 {
+      color: map-get($colors, white);
+
+      .card__face.card__face--front .logo-card:before {
+        background-position-y: -120px;
+      }
+
+      .card__face.card__face--back .container-white .cvc-code {
+        color: map-get($colors, gray500);
+      }
+
+      .skin-card--container .skin-card--mask .skin-card--color {
+        @include linear-gradient(45deg, map-deep-get($theme-uicard, hipercard, 800), map-deep-get($theme-uicard, hipercard, 300));
+      }
+    }
+
+  }
+
+  &.iefix .card {
+
+    &,
+    &.flippend,
+    .card__face.card__face--back {
+      @include transform(none);
+    }
+
+    .card__face.card__face--front {
+      z-index: 1;
+    }
+
+    .card__face.card__face--back {
+      z-index: 0;
+    }
+
+    &.flippend {
+      .card__face.card__face--back {
+        z-index: 2;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    display: table;
+    margin: 0 auto 40px;
+  }
+}

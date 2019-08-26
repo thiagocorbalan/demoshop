@@ -10,19 +10,27 @@
 */
 
 
-$colors: (
-  white: #FFFFFF,
+$colors: (white: #FFFFFF,
   black: #000000,
-  gray100:#F7F7F7,
-  gray200:#E6E6E6,
-  gray:#C9C9C9,
-  gray400:#707070,
-  gray500:#3C3C3C,
-  yellow:#F6BB1D,
+  gray100: #F7F7F7,
+  gray200: #E6E6E6,
+  gray: #C9C9C9,
+  gray400: #707070,
+  gray500: #3C3C3C,
+  yellow: #F6BB1D,
   green: #75B812,
   red100: #DE4B4B,
-  red: #DA3331
+  red: #DA3331);
+
+// Ui Card Color Theme
+$theme-uicard: (
+	visa: (800: #285dda, 300: #5280ff),
+  mastercard: (800: #2b5b6b, 300: #4a94b7),
+  elo:(800: #1d1d1d, 300: #7b7b7b),
+	hipercard:(800: #da3f3f, 300: #ff4a4a)
 );
 
-$font-family-primary: Arial, Helvetica, sans-serif;
-$font-family-secondary: Verdana, Geneva, Tahoma, sans-serif;
+
+
+$font-family-primary: Verdana, Geneva, Tahoma, sans-serif;
+$font-family-secondary: 'Conv_SFProText-SemiBold', Sans-Serif;  
