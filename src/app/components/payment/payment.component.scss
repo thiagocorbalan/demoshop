@@ -128,16 +128,17 @@
     button.btn{
       border: 0;
       background: map-get($colors, red100);
-      @include border-radius(10px);
       padding: em(14px) em(70px);
-      width: 246px;
+      width: em(246px);
       text-transform: uppercase;
       color: map-get($colors, white);
       letter-spacing: -0.01px;
-      font-weight: 17px;
-      line-height: 22px;
+      font-weight: em(17px);
+      line-height: em(22px);
       font-weight: 600;
       font-family: $font-family-secondary;
+      margin-top: em(41px);
+      @include border-radius(10px);
       @include transition(all .2s ease-in-out);
 
       &:hover, &:focus{

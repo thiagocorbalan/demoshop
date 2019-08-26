@@ -44,4 +44,11 @@ app-root {
   .mat-form-field-underline {
     background: map-get($colors, gray);
   }
+
+  .mat-input-element{
+    font-family: $font-family-secondary;
+    font-size: em(17px);
+    color: map-get($colors, gray500);
+
+  }
 }
