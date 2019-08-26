@@ -1,5 +1,9 @@
 # DemoShop
+<p align="center">
 
+![Desktop version](/doc/print-desktop.jpg)
+
+</p>
 This project aims to show all my knowledge in the angle that I acquired in the last 3 years. Simulating a payment screen, I show how I organize my files, components, modules, and services to communicate between components and an API.
 
 In this project I make a point of using SASS as a preprocessor and 2 very famous famous libraries in the market that help us a lot on a daily basis, they are Bootstrap (Twitter) and Material which is from Angular team itself.
@@ -7,6 +11,10 @@ In this project I make a point of using SASS as a preprocessor and 2 very famous
 Every detail of this project has been carefully thought out and programmed with great care so that everything is perfect and meets the expectations of the Bexs team.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
+
+
+
+
 
 ## Development server
 
