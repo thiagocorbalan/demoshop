@@ -205,6 +205,12 @@
       grid-row: 2;
       max-width: em(480px);
       margin: em(114px) auto;
+
+      button.btn{
+        margin: 2.5625em auto 0;
+        width: auto;
+        display: block;
+      }
     }
 
     .breadcrumb { display: none; }
