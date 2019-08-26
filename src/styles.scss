@@ -52,3 +52,12 @@ app-root {
 
   }
 }
+
+mat-form-field .mat-select-arrow{
+  width: 16px;
+  height: 16px;
+  border: 0 !important;
+  transform: rotate(90deg);
+
+  &:before{ content: url("assets/images/icon-arrow.svg");}
+}

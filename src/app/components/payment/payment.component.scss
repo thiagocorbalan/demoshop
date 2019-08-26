@@ -18,7 +18,11 @@
   }
 
   &.credit-card:before{
-      content: url("../../../assets/images/credit-card.svg");
+    content: url("../../../assets/images/credit-card.svg");
+  }
+
+  &.info:before{
+    content: url("../../../assets/images/info.svg");
   }
 }
 .card-area{
@@ -36,10 +40,6 @@
     color: inherit;
     padding: 1em;
     padding-left: 0;
-
-
-
-
   }
 
   h1{
@@ -125,6 +125,17 @@
       width: 100%;
     }
 
+    .icon.info{
+      border: 0;
+      background: none;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      z-index: 1000000;
+      pointer-events: all;
+    }
+
     button.btn{
       border: 0;
       background: map-get($colors, red100);
@@ -144,6 +155,8 @@
       &:hover, &:focus{
         background: map-get($colors, red);
       }
+
+
     }
 
   }
