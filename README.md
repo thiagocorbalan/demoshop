@@ -23,7 +23,22 @@ This project has been configured to start with just 2 clicks or just 1 basic com
 #### Start with 1 command
 - type `npm start` at the command prompt of your choice
 
-Ready! In both options, the browser opens automatically, but it may take a while, please wait patiently :)
+- Finally go to url [http://localhost:4200](http://localhost:4200)
+
+You need to access the URL above, but it may take a while for the app to appear. Wait a moment please :) 
+
+### STACK USED
+
+| Packages   |  Version        |
+|------------|-----------------|
+| Angular    | 8.1.3           |
+| Angular Material   |  8.1.3  |
+| Angular CLI   |  8.2.2       |
+| Bootstrap  | 4.3.1           |
+| NodeJS     | 12.8.0          |
+| Express    | 4.17.1          |
+
+
 
 
 ## Final considerations and important
