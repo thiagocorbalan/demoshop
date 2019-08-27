@@ -4,7 +4,7 @@
   <div class="card-area">
     <button class="btn btn-prev"> <span class="icon arrow-left"></span> Alterar forma de pagamento </button>
     <h1> <span class="icon credit-card"></span> Adicione um novo cartão de crédito</h1>
-    <app-credit-card></app-credit-card>
+    <app-credit-card [dataCredit]="creditFg.value" [cardIsFlipped]="cardIsFlipped"></app-credit-card>
   </div>
 
   <!-- Main -->
@@ -27,14 +27,14 @@
     <!-- Form -->
     <form [formGroup]="creditFg">
       <mat-form-field>
-        <input matInput formControlName="number" placeholder="Número do cartão">
+        <input matInput formControlName="number" placeholder="Número do cartão" mask="0000 0000 0000 0000">
         <mat-error>
           <app-control-messages [placeholder]="'Número'" [control]="creditFg.controls.number"></app-control-messages>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput formControlName="holderName" placeholder="Nome (igual ao cartão)">
+        <input matInput formControlName="holderName" placeholder="Nome (igual ao cartão)" maxlength="24">
         <mat-error>
           <app-control-messages [placeholder]="'Nome'" [control]="creditFg.controls.holderName"></app-control-messages>
         </mat-error>
@@ -42,7 +42,7 @@
 
       <div class="form-fields-inline">
         <mat-form-field>
-          <input matInput formControlName="expiryMonth" placeholder="Validade">
+          <input matInput formControlName="expiryMonth" placeholder="Validade" mask="00/00">
           <mat-error>
             <app-control-messages [placeholder]="'Validade'" [control]="creditFg.controls.expiryMonth">
             </app-control-messages>
@@ -55,7 +55,10 @@
               matTooltip="O CVV é um número que geralmente fica no verso do cartão"
               aria-label="Button that displays a tooltip in various positions"></button>
           </mat-label>
-          <input matInput formControlName="cvv" maxlength="3" (focus)="toggleFlipCard()" (blur)="toggleFlipCard()">
+          <input matInput formControlName="cvv" maxlength="3"
+            mask="000"
+            (focus)="toggleFlipCard()"
+            (blur)="toggleFlipCard()">
           <mat-error>
             <app-control-messages [placeholder]="'CVV'" [control]="creditFg.controls.cvv">
             </app-control-messages>
@@ -67,7 +70,16 @@
       <mat-form-field>
         <mat-label>Número de parcelas</mat-label>
         <mat-select formControlName="installments">
-          <mat-option value="À Vista R$12.000,00">À Vista R$12.000,00 sem juros</mat-option>
+
+          <mat-option *ngFor="let installment of installmentsOptions; index as i" [value]="installment">
+            <ng-template [ngIf]="i == 0">
+              À vista {{ installment | currency:'BRL':'symbol':'1.2-2':'pt' }}
+            </ng-template>
+
+            <ng-template [ngIf]="i > 0">
+              {{i + 1}}x {{ installment | currency:'BRL':'symbol':'1.2-2':'pt' }} sem juros
+            </ng-template>
+          </mat-option>
         </mat-select>
       </mat-form-field>
 

@@ -1,6 +1,6 @@
 <div class="ui-card__container">
   <div class="card"
-    [ngClass]="{'flippend': paymentService.cardIsFlipped}"
+    [ngClass]="{'flippend': cardIsFlipped}"
   >
       <!-- FRONT -->
       <div class="card__face card__face--front">
@@ -12,9 +12,9 @@
           <div class="logo-card"></div>
 
           <!-- Credit Data-->
-          <div class="number-card">**** **** **** ****</div>
-          <div class="name-card">Nome e Sobrenome</div>
-          <div class="date-card">MM/AA</div>
+          <div class="number-card">{{ dataCredit.number ? (dataCredit.number |  uicardmask) : '**** **** **** ****' }} </div>
+          <div class="name-card">{{ dataCredit.holderName ? dataCredit.holderName : 'Nome e Sobrenome' }}</div>
+          <div class="date-card">{{ dataCredit.expiryMonth ? (dataCredit.expiryMonth  | mask: '00/00') : '00/00'  }} </div>
 
 
           <div class="skin-card--container"><div class="skin-card--mask"><div class="skin-card--color"></div></div></div>
@@ -28,7 +28,7 @@
           </div>
           <div class="black-tarja"></div>
           <div class="container-white">
-              <div class="cvv-code">***</div>
+              <div class="cvv-code">{{ dataCredit.cvv ? dataCredit.cvv : '***' }}</div>
           </div>
           <div class="skin-card--container"><div class="skin-card--mask"><div class="skin-card--color"></div></div></div>
       </div>

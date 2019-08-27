@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from 'src/app/share/services/api.service';
-import { environment } from './../../../environments/environment';
 import { CreditCardModel } from '../credit-card/credit-card.model';
 
 @Injectable({
@@ -8,14 +7,15 @@ import { CreditCardModel } from '../credit-card/credit-card.model';
 })
 export class PaymentService {
 
-  private API = environment.ApiURL;
+  constructor(private apiService: ApiService) {}
 
-  constructor(private apiService: ApiService<CreditCardModel>) { }
 
-  cardIsFlipped: boolean;
+  getPrices() {
+    return this.apiService.get(`/payment/get-prices`);
+  }
 
-  getInitialData() {
-    this.apiService.get(this.API);
+  effectPayment(dataCreditCard: CreditCardModel) {
+    return this.apiService.post('payment/effect-payment', dataCreditCard);
   }
 
 }

@@ -1,32 +1,35 @@
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService<T> {
+export class ApiService{
+
+  private API = environment.ApiURL;
 
   constructor(private http: HttpClient) {}
 
-  public get(url: string, options?: HttpRequest<any>): Observable<T[]> {
-    return this.http.get<T[]>(url).pipe(take(1));
+  public get(url: string) {
+
+    return this.http.get<object|[object]>(this.API + url).pipe(take(1));
   }
 
-  public post(url: string, body: any, options?: HttpRequest<any>): Observable<T> {
-    return this.http.post<T>(url, body).pipe(take(1));
+  public post(url: string, body: object) {
+    return this.http.post<object>(this.API + url, body).pipe(take(1));
   }
 
-  public put(url: string, body: any, options?: HttpRequest<any>): Observable<T> {
-    return this.http.put<T>(url, body).pipe(take(1));
+  public put(url: string, body: object) {
+    return this.http.put<object>(this.API + url, body).pipe(take(1));
   }
 
-  public delete(url: string, options?: HttpRequest<any>): Observable<T> {
-    return this.http.delete<T>(url).pipe(take(1));
+  public delete(url: string) {
+    return this.http.delete<object>(this.API + url).pipe(take(1));
   }
 
-  public patch(url: string, body: any, options?: HttpRequest<any>): Observable<T> {
-    return this.http.patch<T>(url, body).pipe(take(1));
+  public patch(url: string, body: object) {
+    return this.http.patch<object>(this.API + url, body).pipe(take(1));
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { CreditCardModel } from './credit-card.model';
+import { Component, OnInit, Input } from '@angular/core';
 import { PaymentService } from './../payment/payment.service';
 
 @Component({
@@ -8,9 +9,14 @@ import { PaymentService } from './../payment/payment.service';
 })
 export class CreditCardComponent implements OnInit {
 
+  @Input() dataCredit: CreditCardModel;
+  @Input() cardIsFlipped: boolean;
   constructor(public paymentService: PaymentService) { }
 
   ngOnInit() {
   }
 
+  changeItem(a){
+    console.log(a);
+  }
 }
