@@ -25,18 +25,28 @@
     </nav>
 
     <!-- Form -->
-    <form>
+    <form [formGroup]="creditFg">
       <mat-form-field>
-        <input matInput placeholder="Número do cartão">
+        <input matInput formControlName="number" placeholder="Número do cartão">
+        <mat-error>
+          <app-control-messages [placeholder]="'Número'" [control]="creditFg.controls.number"></app-control-messages>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Nome (igual ao cartão)">
+        <input matInput formControlName="holderName" placeholder="Nome (igual ao cartão)">
+        <mat-error>
+          <app-control-messages [placeholder]="'Nome'" [control]="creditFg.controls.holderName"></app-control-messages>
+        </mat-error>
       </mat-form-field>
 
       <div class="form-fields-inline">
         <mat-form-field>
-          <input matInput placeholder="Validade">
+          <input matInput formControlName="expiryMonth" placeholder="Validade">
+          <mat-error>
+            <app-control-messages [placeholder]="'Validade'" [control]="creditFg.controls.expiryMonth">
+            </app-control-messages>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -45,18 +55,19 @@
               matTooltip="O CVV é um número que geralmente fica no verso do cartão"
               aria-label="Button that displays a tooltip in various positions"></button>
           </mat-label>
-          <input matInput>
+          <input matInput formControlName="cvv" maxlength="3" (focus)="toggleFlipCard()" (blur)="toggleFlipCard()">
+          <mat-error>
+            <app-control-messages [placeholder]="'CVV'" [control]="creditFg.controls.cvv">
+            </app-control-messages>
+          </mat-error>
         </mat-form-field>
       </div>
 
 
       <mat-form-field>
         <mat-label>Número de parcelas</mat-label>
-        <mat-select #fontSize value="12x R$1.000,00 sem juros">
+        <mat-select formControlName="installments">
           <mat-option value="À Vista R$12.000,00">À Vista R$12.000,00 sem juros</mat-option>
-          <mat-option value="2x R$6.000,00 sem juros">2x R$6.000,00 sem juros</mat-option>
-          <mat-option value="3x R$4.000,00 sem juros">3x R$4.000,00 sem juros</mat-option>
-          <mat-option value="4x R$3.000,00 sem juros">4x R$3.000,00 sem juros</mat-option>
         </mat-select>
       </mat-form-field>
 

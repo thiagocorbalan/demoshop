@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentService } from './../payment/payment.service';
 
 @Component({
   selector: 'app-credit-card',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public paymentService: PaymentService) { }
 
   ngOnInit() {
   }

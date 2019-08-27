@@ -9,6 +9,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AsideComponent } from './layout/aside/aside.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { ControlMessagesComponent } from './share/control-messages/control-messages.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HeaderComponent } from './layout/header/header.component';
       FooterComponent,
       AsideComponent,
       PaymentComponent,
-      CreditCardComponent
+      CreditCardComponent,
+      ControlMessagesComponent
    ],
    imports: [
       BrowserModule,

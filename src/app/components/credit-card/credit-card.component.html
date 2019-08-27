@@ -1,5 +1,7 @@
 <div class="ui-card__container">
-  <div class="card flippend">
+  <div class="card"
+    [ngClass]="{'flippend': paymentService.cardIsFlipped}"
+  >
       <!-- FRONT -->
       <div class="card__face card__face--front">
           <div class="effects">
