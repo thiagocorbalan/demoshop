@@ -16,12 +16,12 @@ Every detail of this project has been carefully thought out and programmed with 
 This project has been configured to start with just 2 clicks or just 1 basic command at the command prompt. But for this to be possible, NODE and NPM must be installed.
 
 - Install [NODE and NPM](https://nodejs.org/en/download/)
-- Run ```npm install -g @angular/cli```
 
 #### Starting the app with 2 clicks
 - Double-click the **START_LAUNCH.bat** file.
 
 #### Start with 1 command
+- Run ```npm install -g @angular/cli``` to install the Angular CLI
 - type `npm start` at the command prompt of your choice
 
 - Finally go to url [http://localhost:4200](http://localhost:4200)
