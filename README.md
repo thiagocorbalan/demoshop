@@ -1,5 +1,5 @@
 # DemoShop
-This project aims to show all my knowledge in the angle that I acquired in the last 3 years. Simulating a payment screen, I show how I organize my files, components, modules, and services to communicate between components and an API.
+This project aims to show all my knowledge in the Angular that I acquired in the last 3 years. Simulating a payment screen, I show how I organize my files, components, modules, and services to communicate between components and an API.
 
 <p align="center">
 
