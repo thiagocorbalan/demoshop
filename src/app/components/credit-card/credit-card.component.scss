@@ -260,19 +260,26 @@
     &.skin-card--123 {
       color: map-get($colors, white);
 
+      .effects{
+        .effects--ball{ @include opacity(.3); }
+      }
+
       .card__face.card__face--back .container-white .cvv-code {
         color: map-get($colors, gray500);
       }
 
       .skin-card--container .skin-card--mask .skin-card--color {
-        @include linear-gradient(45deg, map-deep-get($theme-uicard, visa, 800), map-deep-get($theme-uicard, visa, 300));
-
+        background: map-deep-get($theme-uicard, visa, 800);
       }
     }
 
     // Mastercard
     &.skin-card--141 {
       color: map-get($colors, white);
+
+      .effects{
+        .effects--ball{ @include opacity(.1); }
+      }
 
       .card__face.card__face--front .logo-card:before {
         background-position-y: -40px;
@@ -283,13 +290,16 @@
       }
 
       .skin-card--container .skin-card--mask .skin-card--color {
-        @include linear-gradient(45deg, map-deep-get($theme-uicard, mastercard, 800), map-deep-get($theme-uicard, mastercard, 300));
+        background: map-deep-get($theme-uicard, mastercard, 800);
       }
     }
 
     // Elo
     &.skin-card--147 {
       color: map-get($colors, gray100);
+      .effects{
+        .effects--ball{ @include opacity(.3); }
+      }
 
       .card__face.card__face--front .logo-card:before {
         background-position-y: -80px;
@@ -300,7 +310,7 @@
       }
 
       .skin-card--container .skin-card--mask .skin-card--color {
-        @include linear-gradient(45deg, map-deep-get($theme-uicard, elo, 800), map-deep-get($theme-uicard, elo, 300));
+        background: map-deep-get($theme-uicard, elo, 800);
       }
     }
 
@@ -308,6 +318,10 @@
     &.skin-card--145,
     &.skin-card--237 {
       color: map-get($colors, white);
+
+      .effects{
+        .effects--ball{ @include opacity(.1); }
+      }
 
       .card__face.card__face--front .logo-card:before {
         background-position-y: -120px;
@@ -318,7 +332,7 @@
       }
 
       .skin-card--container .skin-card--mask .skin-card--color {
-        @include linear-gradient(45deg, map-deep-get($theme-uicard, hipercard, 800), map-deep-get($theme-uicard, hipercard, 300));
+        background: map-deep-get($theme-uicard, hipercard, 800);
       }
     }
 
