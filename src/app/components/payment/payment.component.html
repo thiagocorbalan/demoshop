@@ -4,7 +4,7 @@
   <div class="card-area">
     <button class="btn btn-prev"> <span class="icon arrow-left"></span> Alterar forma de pagamento </button>
     <h1> <span class="icon credit-card"></span> Adicione um novo cartão de crédito</h1>
-    <app-credit-card [dataCredit]="creditFg.value" [cardIsFlipped]="cardIsFlipped"></app-credit-card>
+    <app-credit-card [dataCredit]="creditFg.value" [classSkinCard]="classSkinCard" [cardIsFlipped]="cardIsFlipped" ></app-credit-card>
   </div>
 
   <!-- Main -->
@@ -27,7 +27,11 @@
     <!-- Form -->
     <form [formGroup]="creditFg">
       <mat-form-field>
-        <input matInput formControlName="number" placeholder="Número do cartão" mask="0000 0000 0000 0000">
+        <input matInput formControlName="number" placeholder="Número do cartão" mask="0000 0000 0000 0000"
+        (keydown)="discoveringCardBanner($event)"
+        (keyup)="discoveringCardBanner($event)"
+        (keypress)="discoveringCardBanner($event)"
+        >
         <mat-error>
           <app-control-messages [placeholder]="'Número'" [control]="creditFg.controls.number"></app-control-messages>
         </mat-error>

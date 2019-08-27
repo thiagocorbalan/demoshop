@@ -3,7 +3,33 @@ function getProduct() {
   return { price: 12000, maxInstallments: 12 };
 }
 
+function getCardFlags(){
+  const flags = [
+    {code: 123, description: 'Visa', logo: 'visa.jpg' },
+    {code: 141, description: 'Mastercard', logo: 'master.jpg' },
+    {code: 145, description: 'Hipercard', logo: 'hipercard.jpg' },
+    {code: 147, description: 'Elo', logo: 'elo.jpg' }
+  ]
+  return flags;
+
+}
+
 module.exports =  {
+  async getCardFlags(req, res){
+    try{
+      // Simulating get data flags in DB
+      const response = await new Promise( (res,rej) => {
+        setTimeout( () => {
+          const result = getCardFlags(); // Go get database...
+          res(result);
+        }, 1000);
+      });
+      return res.json(response);
+
+    }catch(Error){
+      console.error(`Api Payment (getCardFlags): ${Error}`);
+    }
+  },
   async getPrices(req, res){
     try{
 
@@ -15,8 +41,8 @@ module.exports =  {
         }, 3000);
       });
       return res.json(response);
-    }catch(error){
-      console.error(`Api Payment: ${error}`);
+    }catch(Error){
+      console.error(`Api Payment (getPrices): ${Error}`);
     }
   },
   async effectPayment(req, res){
@@ -42,8 +68,8 @@ module.exports =  {
       });
 
       return res.json(response);
-    }catch(error){
-      console.error(`Api Payment Error: ${error}`);
+    }catch(Error){
+      console.error(`Api Payment Error (effectPayment): ${Error}`);
     }
   }
 }

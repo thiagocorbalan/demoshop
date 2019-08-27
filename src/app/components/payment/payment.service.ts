@@ -14,6 +14,10 @@ export class PaymentService {
     return this.apiService.get(`/payment/get-prices`);
   }
 
+  getCardFlags() {
+    return this.apiService.get(`/payment/get-card-flags`);
+  }
+
   effectPayment(dataCreditCard: CreditCardModel) {
     return this.apiService.post('payment/effect-payment', dataCreditCard);
   }

@@ -7,6 +7,7 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/payment/get-prices', payment.getPrices);
+routes.get('/payment/get-card-flags', payment.getCardFlags);
 routes.post('/payment/effect-payment', payment.effectPayment);
 
 module.exports = routes;
