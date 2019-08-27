@@ -6,6 +6,7 @@ import { CreditCardFlagEnum } from '../credit-card/credit-card-flag.enum';
 import { CardFlagModel } from '../credit-card/credit-card-flag.model';
 import { PaymentPriceModel } from './payment-price.model';
 import { PaymentService } from './payment.service';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -16,23 +17,24 @@ import { PaymentService } from './payment.service';
 export class PaymentComponent implements OnInit {
 
   creditFg: FormGroup;
-  installmentsOptions: Array<number>;
+  installmentOptions: Array<number>;
   cardIsFlipped: boolean;
   cardNumberActive: CreditCardFlagEnum;
   classSkinCard: string;
   cardFlags: Array<CardFlagModel>;
+  spinner: boolean;
 
   constructor(
     private fb: FormBuilder,
     private paymentService: PaymentService) {
 
-    this.installmentsOptions = new Array();
+    this.installmentOptions = new Array();
     this.cardFlags = new Array();
   }
 
   ngOnInit() {
     this.createForm();
-    this.creditFg.controls.installments.disable();
+    this.creditFg.controls.installmentOpt.disable();
     this.loadInstallmentsOptions();
     this.loadCardFlags();
   }
@@ -43,11 +45,11 @@ export class PaymentComponent implements OnInit {
       cvv: [null, Validators.required],
       holderName: [null, Validators.required],
       expiryMonth: [null, Validators.required],
-      installments: [null, Validators.required],
+      installmentOpt: [null, Validators.required],
       flagCard: null
     });
   }
-  private loadCardFlags(){
+  private loadCardFlags() {
     this.paymentService.getCardFlags().subscribe((flags: Array<CardFlagModel>) => {
       this.cardFlags = flags;
     });
@@ -58,10 +60,10 @@ export class PaymentComponent implements OnInit {
       let i = 1;
       while (i <= data.maxInstallments) {
         const price = data.price / i;
-        this.installmentsOptions.push(price);
+        this.installmentOptions.push(price);
         i++;
       }
-      this.creditFg.controls.installments.enable();
+      this.creditFg.controls.installmentOpt.enable();
     });
   }
 
@@ -110,4 +112,14 @@ export class PaymentComponent implements OnInit {
 
   }
 
+  makePayment() {
+    if (this.creditFg.valid) {
+      this.spinner = true;
+      const data = this.creditFg.value;
+      this.paymentService.effectPayment(data).subscribe(result => {
+        console.log(result);
+        this.spinner = false;
+      });
+    }
+  }
 }

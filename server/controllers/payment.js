@@ -47,9 +47,7 @@ module.exports =  {
   },
   async effectPayment(req, res){
     try{
-      const { ammount, cvv, expiryMonth, flagCard, holderName, installments, number } = req.body;
-
-      console.log('body:', req.body);
+      const { installmentOpt, cvv, expiryMonth, flagCard, holderName, number } = req.body;
 
       //Simulating server-side data validation and paying for the product or service
       const response = await new Promise( (res,rej) => {
@@ -58,7 +56,8 @@ module.exports =  {
           let result = null;
 
           // Simulating a possible validation of data
-          if(installments <= maxInstallments && (ammount*installments) == price ){
+          if(installmentOpt.installments <= maxInstallments &&
+            (installmentOpt.ammount*installmentOpt.installments) == price ){
             result = { status: "success", message: "Payment successful"};
           }else{
             result = { status: "error", message: "Payment error"};

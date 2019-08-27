@@ -17,7 +17,7 @@ export class ApiService{
     return this.http.get<object|[object]>(this.API + url).pipe(take(1));
   }
 
-  public post(url: string, body: object) {
+  public post(url: string, body: any) {
     return this.http.post<object>(this.API + url, body).pipe(take(1));
   }
 

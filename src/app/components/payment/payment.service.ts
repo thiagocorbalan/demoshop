@@ -19,7 +19,7 @@ export class PaymentService {
   }
 
   effectPayment(dataCreditCard: CreditCardModel) {
-    return this.apiService.post('payment/effect-payment', dataCreditCard);
+    return this.apiService.post('/payment/effect-payment', dataCreditCard);
   }
 
 }

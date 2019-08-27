@@ -25,7 +25,7 @@
     </nav>
 
     <!-- Form -->
-    <form [formGroup]="creditFg">
+    <form [formGroup]="creditFg" (submit)="makePayment()">
       <mat-form-field>
         <input matInput formControlName="number" placeholder="Número do cartão" mask="0000 0000 0000 0000"
         (keydown)="discoveringCardBanner($event)"
@@ -73,23 +73,34 @@
 
       <mat-form-field>
         <mat-label>Número de parcelas</mat-label>
-        <mat-select formControlName="installments">
+        <mat-select formControlName="installmentOpt">
 
-          <mat-option *ngFor="let installment of installmentsOptions; index as i" [value]="installment">
+          <mat-option *ngFor="let ammount of installmentOptions; index as i"
+              [value]="{'ammount':ammount, 'installments': i+1 }" >
             <ng-template [ngIf]="i == 0">
-              À vista {{ installment | currency:'BRL':'symbol':'1.2-2':'pt' }}
+              À vista {{ ammount | currency:'BRL':'symbol':'1.2-2':'pt' }}
             </ng-template>
 
             <ng-template [ngIf]="i > 0">
-              {{i + 1}}x {{ installment | currency:'BRL':'symbol':'1.2-2':'pt' }} sem juros
+              {{i + 1}}x {{ ammount | currency:'BRL':'symbol':'1.2-2':'pt' }} sem juros
             </ng-template>
           </mat-option>
         </mat-select>
+        <mat-error>
+          <app-control-messages [placeholder]="'Número de parcelas'" [control]="creditFg.controls.installmentOpt">
+          </app-control-messages>
+        </mat-error>
       </mat-form-field>
 
       <div class="clear"></div>
 
-      <button type="submit" class="btn">Continuar</button>
+      <button type="submit" class="btn" [ngClass]="{'loading disabled': spinner}" [disabled]="spinner">
+        <span>Continuar</span>
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+
+      </button>
 
     </form>
   </div>
